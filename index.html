@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>My Links</title>
+    
+    <style>
+        /* Styles for the button */
+        .button {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          width: 100px;
+          height: 50px;
+          background-color: white;
+          border-radius: 25px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease;
+        }
+    
+        /* Styles for the button text */
+        .button-text {
+          font-size: 16px;
+        }
+    
+        /* Hover animation for the button */
+        .button:hover {
+          transform: scale(1.05); /* Scale up the button when hovered */
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    
+        /* Styles for the modal */
+        .modal {
+          display: none;
+          position: fixed;
+          top: 50%;
+          left: 70%;
+          transform: translate(-50%, -50%);
+          width: 600px;
+          height: 600px;
+          background-color: white;
+          border-radius: 15px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          padding: 20px;
+          text-align: center;
+          z-index: 999;
+        }
+    
+        /* Styles for the modal title */
+        .modal-title {
+          font-size: 20px;
+          margin-bottom: 10px;
+        }
+    
+        /* Animation for modal */
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+    
+        @keyframes fadeOut {
+          from {
+            opacity: 1;
+          }
+          to {
+            opacity: 0;
+          }
+        }
+      </style>
+    </head>
+    <body>
+      <!-- Button -->
+      <div class="button" id="aboutMeButton">
+        <span class="button-text">About Me</span>
+      </div>
+    
+      <!-- Modal -->
+      <div class="modal" id="aboutMeModal">
+        <h2 class="modal-title">About Me</h2>
+        <img src="images/pfp.gif" alt="Profile Picture" style="width: 100px; height: 100px;">
+        <p>Interests: Ena, Mean girls, Musicals, The Amazing World of Gumball, Big Mouth, Ginny and Georgia, Cyberpunk Edgerunners, Nichijou, Assasination Classroom, Danganronpa, Ultra Despair Girls, Higurashi When They Cry, Steven Universe, Analog horror, horror, SAW, etc. </p>
+        <p>Favorite Artists: Nicki Minaj, Ayesha Erotica, Melanie Martinez, Billie Eilish, Renee Rap, Doja Cat, 6arelyhuman, Ariana Grande, Lana Del Rey, (G)-idle, etc.  </p>
+        <p>Pronouns: Any</p>
+        <p>Gender: Bi-Gender</p>
+        <p>Sexuality: Aromantic</p>
+      </div>
+    
+      <script>
+        // Get the modal
+        var modal = document.getElementById("aboutMeModal");
+    
+        // Get the button that opens the modal
+        var button = document.getElementById("aboutMeButton");
+    
+        // When the user clicks the button, toggle the modal visibility
+        button.onclick = function() {
+          if (modal.style.display === "block") {
+            modal.style.animation = "fadeOut 0.5s forwards";
+            setTimeout(function() {
+              modal.style.display = "none";
+            }, 500);
+          } else {
+            modal.style.display = "block";
+            modal.style.animation = "fadeIn 0.5s forwards";
+          }
+        }
+      </script>
+
+    <style>
+        /* Style for the circle */
+        .circle {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            color: #333;
+            border-radius: 50%;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.5s ease; /* Animation */
+        }
+        
+        /* Style for the credits box */
+        .credits-container {
+            position: fixed;
+            top: 6%;
+            right: 0%;
+            transform: translate(100%, -50%);
+            background-color: white;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 90%;
+            transition: transform 0.5s ease; /* Animation */
+            z-index: 9999; /* Ensure it's above other content */
+        }
+    
+        /* Style for the close button */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: black;
+        }
+
+        /* Style for links */
+        .linkIcon {
+            height: 3rem;
+            aspect-ratio: 1;
+            margin-right: 10px; /* Add some spacing between icon and text */
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px; /* Add some spacing between links */
+            text-decoration: none;
+            color: #333;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .circle {
+                bottom: 10px; /* Adjust position for small screens */
+                right: 10px; /* Adjust position for small screens */
+            }
+
+            .credits-container {
+                top: 5%;
+                right: 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+<div class="container">
+    <video autoplay loop muted plays-inline class="background-clip">
+        <source src="images/video.mp4" type="video/mp4">
+    </video>
+    <div class="content">
+        <!-- Circle with copyright sign -->
+        <div class="circle" onclick="toggleCredits()">
+            <span id="copyrightSymbol">©</span>
+        </div>
+        
+        <!-- Credits box -->
+        <div id="creditsContainer" class="credits-container">
+            <span class="close" onclick="toggleCredits()">&times;</span>
+            <h2>Credits</h2>
+            <h3>©Paramount pictures 2024/2023
+                ©Samantha Jayne
+                ©Arturo Perez Jr.
+                ©Tina Fey</h3>
+        </div>
+
+        <h1>My Links</h1>
+        
+        <a href="https://www.amazon.com/hz/wishlist/ls/7RZWGV6JQXXC?ref_=wl_share">
+          <img class="linkIcon" src="images/pfp.gif" alt="">
+          <span>Amazon Wishlist</span>
+        </a>
+
+        <a href="https://www.roblox.com/users/4135686081/profile">
+          <img class="linkIcon" src="images/pfp.gif" alt="">
+          <span>Roblox</span>
+        </a>
+
+        <a href="https://spacehey.com/profile?id=2522511">
+          <img class="linkIcon" src="images/pfp.gif" alt="">
+          <span>Spacehey</span>
+        </a>
+
+        <a href="https://www.tiktok.com/@lanas_vape101">
+            <img class="linkIcon" src="images/pfp.gif" alt="">
+            <span>Tiktok</span>
+        </a>
+
+        <a href="https://open.spotify.com/user/bza4w8uftwqevf6edgw5mulsf">
+            <img class="linkIcon" src="images/pfp.gif" alt="">
+            <span>Spotify</span>
+        </a>
+
+        <a href="https://www.youtube.com/channel/UCDre9PLY6xr41PBHRS-vROg">
+            <img class="linkIcon" src="images/pfp.gif" alt="">
+            <span>Youtube</span>
+        </a>
+    </div>    
+</div>
+
+<script>
+    // Function to toggle the visibility of the credits box and rotate the circle
+    function toggleCredits() {
+        var creditsContainer = document.getElementById("creditsContainer");
+        var circle = document.querySelector(".circle");
+
+        if (creditsContainer.style.transform === "translate(0%, -50%)") {
+            creditsContainer.style.transform = "translate(100%, -50%)";
+            circle.style.transform = "rotate(0deg)";
+        } else {
+            creditsContainer.style.transform = "translate(0%, -50%)";
+            circle.style.transform = "rotate(360deg)";
+        }
+    }
+</script>
+
+</body>
+</html>
